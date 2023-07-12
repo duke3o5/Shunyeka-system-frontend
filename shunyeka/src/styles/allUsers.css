@@ -1,0 +1,27 @@
+.statsTable{
+    /* border: 1px solid red; */
+    margin: auto;
+  }
+  
+  .statsTable th,
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .statsTable th, td {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .statsTable tr:hover {
+    background-color: #84c225;
+  }
+  
+  .statsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .statsTable th {
+    background-color: #84c225;
+    color: white;
+  }

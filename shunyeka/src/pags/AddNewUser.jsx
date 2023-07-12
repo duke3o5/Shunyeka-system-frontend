@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/addData.css';
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/action";
 
@@ -36,14 +37,16 @@ export const AddNewUser = () => {
         phone
       }
 
-      dispatch(addUser(obj));
-      console.log(obj)
+      dispatch(addUser(obj)).then(()=>{
+        alert("User added")
+      })
+      // console.log(obj)
     };
   
     return (
-      <div>
+      <div className="mainDiv">
         <h2>User Form</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}className="form">
           <div>
             <label>Name: </label>
             <input type="text" value={name} onChange={handleNameChange} required />
@@ -54,18 +57,18 @@ export const AddNewUser = () => {
           </div>
           <div>
             <label>Phone: </label>
-            <input type="tel" value={phone} onChange={handlePhoneChange} required />
+            <input type="number" value={phone} onChange={handlePhoneChange} required />
           </div>
           <button type="submit">Add User</button>
         </form>
-        <h2>Saved Users</h2>
+        {/* <h2>Saved Users</h2>
         <ul>
           {users.map((user, index) => (
             <li key={index}>
               <strong>Name:</strong> {user.name}, <strong>Email:</strong> {user.email}, <strong>Phone:</strong> {user.phone}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
   );
 };

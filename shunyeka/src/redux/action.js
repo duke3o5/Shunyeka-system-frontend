@@ -1,12 +1,13 @@
 import axios from "axios";
 import {
   ADD_USER,
+  DELETE_USER,
   GET_ALL_USER,
   GET_ALL_USER_ERROR,
   GET_ALL_USER_REQUEST,
   GET_SINGLE_USER,
 } from "./actionType";
-const url = "https://erin-famous-angler.cyclic.app/shunyeka/users";
+const url = "https://frightened-clam-shirt.cyclic.app/shunyeka/users";
 
 export const getUsers = () => (dispatch) => {
   dispatch({ type: GET_ALL_USER_REQUEST });
@@ -39,7 +40,7 @@ export const getSingleUsers = (id) => (dispatch) => {
 export const deleteUser = (id) => (dispatch) => {
   try {
     return axios.delete(`${url}/${id}`).then((res) => {
-      console.log("Users Deleted");
+      dispatch({type: DELETE_USER})
       // getUsers();
     });
   } catch (error) {
